@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Debug : MonoBehaviour
+public class DebugMain : MonoBehaviour
 {
     /*!
      * \fn  private void Start()
@@ -11,6 +11,7 @@ public class Debug : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log("xx");
     }
 
     /*!
@@ -22,5 +23,6 @@ public class Debug : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log("yy");
     }
 }
