@@ -11,7 +11,6 @@ public class DebugMain : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("xx");
     }
 
     /*!
@@ -23,6 +22,5 @@ public class DebugMain : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("yy");
     }
 }
