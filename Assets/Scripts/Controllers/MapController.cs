@@ -35,8 +35,8 @@ public class MapController
     public static Vector3 mapPostion2ScreenPosition(Mznqa.Position mapPosition)
     {
         return new Vector3(
-            mapPosition.x * 0.64f,
-            mapPosition.y * (-0.64f),
+            mapPosition.x * SizeDefine.MapTileSizePixel,
+            0.0f - mapPosition.y * SizeDefine.MapTileSizePixel,
             0.0f
             );
     }

@@ -1,6 +1,13 @@
 ﻿using UnityEngine;
 
-public class Debug : MonoBehaviour
+/*!
+ * \class   DebugMain
+ *
+ * \brief   调试用
+ *
+ */
+
+public class DebugMain : MonoBehaviour
 {
     /*!
      * \fn  private void Start()

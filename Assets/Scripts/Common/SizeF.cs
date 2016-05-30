@@ -1,50 +1,50 @@
 ﻿namespace Mznqa
 {
     /*!
-     * \struct  Size
+     * \struct  SizeF
      *
      * \brief   尺寸
      *
      */
 
-    public struct Size
+    public struct SizeF
     {
         /*! \brief   零尺寸 */
-        public static Size Zero = new Size(0, 0);
+        public static SizeF Zero = new SizeF(0.0f, 0.0f);
 
         /*! \brief   宽度 */
-        private int _width;
+        private float _width;
         /*! \brief   高度 */
-        private int _height;
+        private float _height;
 
         /*!
-         * \property    public int width
+         * \property    public float width
          *
          * \brief   宽度
          *
          */
 
-        public int width
+        public float width
         {
             get { return this._width; }
-            set { if (value >= 0) this._width = value; }
+            set { if (value >= 0.0f) this._width = value; }
         }
 
         /*!
-         * \property    public int height
+         * \property    public float height
          *
          * \brief   高度
          *
          */
 
-        public int height
+        public float height
         {
             get { return this._height; }
-            set { if (value >= 0) this._height = value; }
+            set { if (value >= 0.0f) this._height = value; }
         }
 
         /*!
-         * \fn  public Size(int width = 0, int height = 0)
+         * \fn  public SizeF(float width = 0.0f, float height = 0.0f)
          *
          * \brief   构造函数
          *
@@ -52,7 +52,7 @@
          * \param   height  指定高度
          */
 
-        public Size(int width = 0, int height = 0)
+        public SizeF(float width = 0.0f, float height = 0.0f)
         {
             this._width = Zero.width;
             this._height = Zero.height;
@@ -60,13 +60,13 @@
         }
 
         /*!
-         * \fn  public Size(Size size)
+         * \fn  public SizeF(SizeF sizeF)
          *
          * \brief   拷贝构造函数
          *
          */
 
-        public Size(Size size)
+        public SizeF(SizeF sizeF)
         {
             this._width = Zero.width;
             this._height = Zero.height;
@@ -74,7 +74,7 @@
         }
 
         /*!
-         * \fn  public bool setValue(int width, int height)
+         * \fn  public bool setValue(float width, float height)
          *
          * \brief   设置值
          *
@@ -82,9 +82,9 @@
          * \param   height  指定高度
          */
 
-        public bool setValue(int width, int height)
+        public bool setValue(float width, float height)
         {
-            if (width >= 0 && height >= 0)
+            if (width >= 0.0f && height >= 0.0f)
             {
                 this._width = width;
                 this._height = height;
@@ -102,8 +102,8 @@
 
         public void setZero()
         {
-            this._width = 0;
-            this._height = 0;
+            this._width = 0.0f;
+            this._height = 0.0f;
         }
     }
 }

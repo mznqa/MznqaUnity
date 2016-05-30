@@ -60,8 +60,8 @@ public class InputController : MonoBehaviour
         {
             if (Input.GetMouseButton(0))
             {
-                horizontalMapControl = Input.GetAxis("Mouse X");
-                verticalMapControl = Input.GetAxis("Mouse Y");
+                horizontalMapControl = -Input.GetAxis("Mouse X");
+                verticalMapControl = -Input.GetAxis("Mouse Y");
                 if (moveCamera != null)
                     moveCamera(new Vector3(horizontalMapControl * cameraMoveSensitivity, verticalMapControl * cameraMoveSensitivity, 0.0f));
             }

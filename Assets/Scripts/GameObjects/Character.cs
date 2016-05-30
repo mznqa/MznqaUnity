@@ -9,6 +9,19 @@
 
 public class Character
 {
+    /*!
+     * \fn  public delegate void EventHandler();
+     *
+     * \brief   委托声明
+     *
+     */
+
+    public delegate void EventHandler();
+
+    /*! \brief   委托实例，角色位置变更 */
+
+    public event EventHandler characterPositionChanged;
+
     /*! \brief   角色所在的位置 */
     private Mznqa.Position _position;
 
@@ -52,7 +65,10 @@ public class Character
     {
         var pos = this._position + delta;
         if (GameObjectManager.Instance.gameMap.isPassable(pos))
+        {
             this._position = pos;
+            characterPositionChanged();
+        }
     }
 
     /*!
@@ -68,7 +84,10 @@ public class Character
     {
         var pos = this._position + new Mznqa.Position(deltaX, deltaY);
         if (GameObjectManager.Instance.gameMap.isPassable(pos))
+        {
             this._position = pos;
+            characterPositionChanged();
+        }
     }
 
     /*!
@@ -83,7 +102,10 @@ public class Character
     {
         var pos = this._position + new Mznqa.Position(deltaX, 0);
         if (GameObjectManager.Instance.gameMap.isPassable(pos))
+        {
             this._position = pos;
+            characterPositionChanged();
+        }
     }
 
     /*!
@@ -98,6 +120,9 @@ public class Character
     {
         var pos = this._position + new Mznqa.Position(0, deltaY);
         if (GameObjectManager.Instance.gameMap.isPassable(pos))
+        {
             this._position = pos;
+            characterPositionChanged();
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿/*!
+﻿using UnityEngine;
+
+/*!
  * \class   GameMap
  *
  * \brief   地图对象
@@ -11,7 +13,10 @@ public class GameMap
     private MapNode[,] _mapNodeSet;
 
     /*! \brief   地图尺寸 */
-    public Mznqa.Size _mapSize;
+    private Mznqa.Size _mapSize;
+
+    /*! \brief   地图实际所占的像素大小 */
+    private Mznqa.SizeF _mapSizePixel;
 
     /*!
      * \property    public MapNode mapNodeSet
@@ -38,6 +43,18 @@ public class GameMap
     }
 
     /*!
+     * \property    public Mznqa.SizeF mapSizePixel
+     *
+     * \brief   地图实际占用的像素大小
+     *
+     */
+
+    public Mznqa.SizeF mapSizePixel
+    {
+        get { return this._mapSizePixel; }
+    }
+
+    /*!
      * \fn  public GameMap()
      *
      * \brief   构造函数
@@ -48,6 +65,7 @@ public class GameMap
     {
         this._mapNodeSet = null;
         this._mapSize = Mznqa.Size.Zero;
+        this._mapSizePixel = Mznqa.SizeF.Zero;
     }
 
     /*!
@@ -64,6 +82,13 @@ public class GameMap
         this._mapSize.setValue(
             this._mapNodeSet.GetLength(1),
             this._mapNodeSet.GetLength(0)
+            );
+        this._mapSizePixel.setValue(
+               this._mapSize.width *
+               SizeDefine.MapTileSizePixel,
+
+               this._mapSize.height *
+               SizeDefine.MapTileSizePixel
             );
     }
 
@@ -82,6 +107,13 @@ public class GameMap
             this._mapNodeSet.GetLength(1),
             this._mapNodeSet.GetLength(0)
             );
+        this._mapSizePixel.setValue(
+            this._mapSize.width *
+            SizeDefine.MapTileSizePixel,
+
+            this._mapSize.height *
+            SizeDefine.MapTileSizePixel
+        );
     }
 
     /*!
@@ -100,7 +132,8 @@ public class GameMap
             {
                 _mapNodeSet[y, x] = null;
             }
-        _mapSize.setZero();
+        this._mapSize.setZero();
+        this._mapSizePixel.setZero();
     }
 
     /*!

@@ -56,12 +56,14 @@ public class GameController : MonoBehaviour
                     );
             }
 
-        GameObjectManager.Instance.character.position = new Mznqa.Position(10, 10);
+        GameObjectManager.Instance.character.position = new Mznqa.Position(1, 2);
         Instantiate(
                         prefabCharacter,
                         MapController.mapPostion2ScreenPosition(GameObjectManager.Instance.character.position),
                         Quaternion.identity
                     );
+
+        GameObject.Find("Main Camera").GetComponent<CameraController>().updateMoveRangeAndLookAtCharacter();
     }
 
     /*!
